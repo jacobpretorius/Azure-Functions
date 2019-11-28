@@ -1,0 +1,10 @@
+{
+  "name": "StartTogglSleepingInTimer",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "dependencies": {
+    "toggl-api": "^1.0.1"
+  },
+  "devDependencies": {}
+}
