@@ -1,10 +1,10 @@
 {
   "bindings": [
     {
-      "name": "myTimer",
+      "name": "TogglStartpageSync",
       "type": "timerTrigger",
       "direction": "in",
-      "schedule": "0 30 6 * * *"
+      "schedule": "0 0 4 * * *"
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "TOGGL" : {
+    "API_TOKEN" : "",
+    "SLEEPING_IN_PROJECT_ID" : ""
+  },
+  "STARTPAGE" : {
+    "KEY" : "",
+    "GOAL_PROJECT_ID" : "",
+    "GOAL_MINUTES" : 0
+  }
+}

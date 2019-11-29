@@ -1,9 +1,11 @@
 {
-  "name": "StartTogglSleepingInTimer",
+  "name": "JacobsAzureFunctions",
   "version": "1.0.0",
   "description": "",
   "scripts": {},
   "dependencies": {
+    "moment": "^2.24.0",
+    "request": "^2.88.0",
     "toggl-api": "^1.0.1"
   },
   "devDependencies": {}
