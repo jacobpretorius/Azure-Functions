@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {},
+  "repository": {
+    "url": "https://github.com/jacobpretorius/Azure-Functions"
+  },
+  "author": {
+    "name": "Jacob Pretorius"
+  },
+  "license": "MIT",
   "dependencies": {
     "moment": "^2.24.0",
     "request": "^2.88.0",
