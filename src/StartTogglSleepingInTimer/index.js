@@ -1,5 +1,5 @@
 const TogglClient = require('toggl-api');
-const SETTINGS = require('../settings.json');
+const SETTINGS = require('../settings.js');
 
 module.exports = (context, myTimer) => {
   const toggl = new TogglClient({ apiToken: SETTINGS.TOGGL.API_TOKEN });

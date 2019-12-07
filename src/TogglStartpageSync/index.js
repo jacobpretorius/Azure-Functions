@@ -1,7 +1,7 @@
 const TogglClient = require('toggl-api');
 const Moment = require('moment');
 const Request = require('request');
-const SETTINGS = require('../settings.json');
+const SETTINGS = require('../settings.js');
 
 module.exports = (context, myTimer) => {
   const toggl = new TogglClient({ apiToken: SETTINGS.TOGGL.API_TOKEN });
@@ -39,7 +39,9 @@ module.exports = (context, myTimer) => {
       // All done, do the request
       Request(
       {
-        url: 'https://startpage.service.webproject.za.net/api/SetDay?key='
+        url: 'https://'
+          + SETTINGS.STARTPAGE.URL
+          + '/api/SetDay?key='
           + SETTINGS.STARTPAGE.KEY
           + '&day='
           + Moment().add(-1,'days').format('dddd') + '&goal='
