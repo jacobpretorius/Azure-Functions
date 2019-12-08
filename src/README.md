@@ -8,9 +8,6 @@ The Azure re-implementation of [toggl-sleeping-in](https://github.com/jacobpreto
 The sync job that checks Toggl for daily read goal and updates my Startpage API.
 
 # Installation
-Update your keys in `src/settings.json`.
+Update your keys in `src/settings.js` for local debugging or add to Azure ENV variables for hosted running.
 
 Configure run times in `src/job/function.json` using the `"schedule": "* * * * * *"` cron setting.
-
-## Wishlist
-* Implement [key vault](https://daniel-krzyczkowski.github.io/Integrate-Key-Vault-Secrets-With-Azure-Functions/) I guess.
