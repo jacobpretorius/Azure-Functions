@@ -8,6 +8,7 @@ module.exports = async function (context, req) {
   // Make sure transaction is something merchant based
   if (!merchant || !merchant.length) {
     context.done();
+    return;
   }
 
   merchant = merchant.replace(/[^A-Za-z0-9]/g,"").toLowerCase();
@@ -15,6 +16,7 @@ module.exports = async function (context, req) {
   // Check if it's one we care about
   if (!(merchant in responses)) {
     context.done();
+    return;
   }
 
   let messageToUser = `${req.body.data.merchant.emoji || '💸'} ${responses[merchant]}`;
@@ -27,12 +29,11 @@ module.exports = async function (context, req) {
         +'/say/exact?key='
         + SETTINGS.JARVIS.KEY
         + '&message='
-        + messageToUser,
+        + encodeURI(messageToUser),
       rejectUnauthorized: true
     }, (err, response) => {
       if (err) {
         context.error(err);
-        context.done();
       }
 
       context.done();
