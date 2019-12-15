@@ -1,0 +1,23 @@
+module.exports = {
+  "camdentownbrewery" : "Next round should be a water 😉🌊",
+  "thestarofkings" : "Next round should be a water 😉🌊",
+  "littlecreatures" : "Next round should be a water 😉🌊",
+  "thehawleyarms" : "Next round should be a water 😉🌊",
+  "locktavern" : "Next round should be a water 😉🌊",
+  "drakemorgan" : "Next round should be a water 😉🌊",
+  "electricballroom" : "Next round should be a water 😉🌊",
+  "camdenhead" : "Next round should be a water 😉🌊",
+  "underworld" : "Next round should be a water 😉🌊",
+  "theworldsend" : "Next round should be a water 😉🌊",
+  "theprincealbert" : "Next round should be a water 😉🌊",
+  "theimperial" : "Next round should be a water 😉🌊",
+  "loadingdalston" : "Next round should be a water 😉🌊",
+  "theearlofcamden" : "Next round should be a water 😉🌊",
+  "goldenlion" : "Next round should be a water 😉🌊",
+  "spreadeaglecamden" : "Next round should be a water 😉🌊",
+  "brewdog" : "Next round should be a water 😉🌊",
+  "colonelfawcett" : "Next round should be a water 😉🌊",
+  "royalgeorge" : "Next round should be a water 😉🌊",
+  "roundhouse" : "Next round should be a water 😉🌊",
+  "egglondon" : "Get. Out."
+}
