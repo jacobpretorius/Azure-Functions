@@ -4,7 +4,7 @@
       "name": "StartTogglSleepingInTimer",
       "type": "timerTrigger",
       "direction": "in",
-      "schedule": "0 30 6 * * *"
+      "schedule": "0 30 6 * * 1-5"
     }
   ]
 }
