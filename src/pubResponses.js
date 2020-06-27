@@ -14,6 +14,7 @@ module.exports = {
   "loadingdalston" : "Next round should be a water 😉🌊",
   "theearlofcamden" : "Next round should be a water 😉🌊",
   "goldenlion" : "Next round should be a water 😉🌊",
+  "thealberthit" : "Next round should be a water 😉🌊",
   "spreadeaglecamden" : "Next round should be a water 😉🌊",
   "brewdog" : "Next round should be a water 😉🌊",
   "colonelfawcett" : "Next round should be a water 😉🌊",
