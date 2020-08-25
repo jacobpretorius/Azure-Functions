@@ -29,9 +29,15 @@ module.exports = (context, request) => {
           // Check if it is a reading timer
           if (TimedActivity.pid == request.query.projectId && Moment(TimedActivity.stop).format('DD') === activeDay) {
             // Got one
-            durationMs = durationMs + TimedActivity.duration;
+            if (TimedActivity.duration > 0) {
+              durationMs += TimedActivity.duration;
+            }
           }
         });   
+      }
+
+      if (durationMs < 0) {
+        durationMs = 0;
       }
 
       // All done, return
