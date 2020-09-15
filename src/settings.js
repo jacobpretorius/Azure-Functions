@@ -4,6 +4,10 @@ module.exports = {
     'SLEEPING_IN_PROJECT_ID' : process.env.TOGGL_SLEEPING_IN_PROJECT_ID || ''
   },
 
+  TODOIST : {
+    'API_TOKEN' : process.env.TODOIST_API_TOKEN || ''
+  },
+
   STARTPAGE : {
     'URL' : process.env.STARTPAGE_URL || '',
     'KEY' : process.env.STARTPAGE_KEY || '',

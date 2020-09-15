@@ -1,10 +1,11 @@
 {
   "bindings": [
     {
-      "name": "StartTogglSleepingInTimer",
+      "name": "TogglStartSleepingInTimer",
       "type": "timerTrigger",
       "direction": "in",
       "schedule": "0 30 6 * * 1-5"
     }
-  ]
+  ],
+  "disabled": true
 }
