@@ -1,7 +1,9 @@
 const TogglClient = require('toggl-api');
 const Moment = require('moment');
 const SETTINGS = require('../settings.js');
+// Remember to set your Toggl API key in a 'TOGGL_API_TOKEN' Azure function secret, or directly in the settings.js file (not recommended).
 
+// Expects projectId as a param 
 module.exports = (context, request) => {
   const toggl = new TogglClient({ apiToken: SETTINGS.TOGGL.API_TOKEN });
   
