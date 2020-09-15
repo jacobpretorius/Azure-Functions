@@ -28,7 +28,10 @@ module.exports = (context, request) => {
       // All done, return
       context.res = {
         // status defaults to 200 */
-        body: { 'ItemsToday': itemsToday }
+        body: {
+          'ItemsToday': itemsToday != null ? itemsToday : null,
+          'Count': itemsToday != null ? itemsToday.length : 0
+        }
       };
       context.done();
     })
