@@ -9,19 +9,28 @@ In VS code make sure to have the Azure Functions extension installed, VS will pr
 ### Functions
 
 **Toggl project tracked check**
+
 Checks a given project in Toggl to see how much time has been logged to it for the current day.
 
 **Toggl start sleeping In timer**
+
 The Azure re-implementation of [toggl-sleeping-in](https://github.com/jacobpretorius/toggl-sleeping-in) which used to run on the ex-wonderful webtask.io. Currently disabled in the function.json file.
 
 **Toggl => Startpage Sync**
+
 The sync job that checks Toggl for daily read goal and updates my personal Startpage API.
 
 **Monzo payment webhook**
+
 Called by Monzo every time I do transaction, which then triggers my Telegram bot to give me lip on my bad spending choices.
 
 **Todoist get items today**
+
 Get the due tasks for the current day.
+
+**Today View**
+
+A combination of the Toggl project tacked check and Todoist get items today functions in one call.
 
 ### Installation
 
