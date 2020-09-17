@@ -1,7 +1,11 @@
 const axios = require('axios');
 const Moment = require('moment');
+
+// Remember to set Azure "Application settings" for:
+// Todoist API key in 'TODOIST_API_TOKEN'
+// or directly in the settings.js file (not recommended).
+// See https://docs.microsoft.com/en-gb/azure/app-service/configure-common for more info
 const SETTINGS = require('../settings.js');
-// Remember to set your Todoist API key in a 'TODOIST_API_TOKEN' Azure function secret, or directly in the settings.js file (not recommended).
 
 module.exports = (context, request) => {
   const url = 'https://api.todoist.com/sync/v8/sync';
