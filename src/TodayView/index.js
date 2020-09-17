@@ -1,10 +1,11 @@
 const Axios = require('axios');
 const Moment = require('moment');
 
-// Remember to set Azure function secrets for:
+// Remember to set Azure "Application settings" for:
 // Todoist API key in 'TODOIST_API_TOKEN'
 // Toggl API key in 'TOGGL_API_TOKEN
 // or directly in the settings.js file (not recommended).
+// See https://docs.microsoft.com/en-gb/azure/app-service/configure-common for more info
 const SETTINGS = require('../settings.js');
 
 // Interacts with Todoist
