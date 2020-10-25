@@ -18,5 +18,9 @@ module.exports = {
   JARVIS : {
     'URL' : process.env.JARVIS_URL || '',
     'KEY' : process.env.JARVIS_KEY || ''
+  },
+
+  ECOLOGI : {
+    'USER' : process.env.ECOLOGI_USER || ''
   }
 }
