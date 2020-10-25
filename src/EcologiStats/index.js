@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+// Sign up to Ecologi if you havent already -> https://ecologi.com/jacob?r=5f06306809bb2c0017d8e912
+// and then put your public username in SETTINGS.ECOLOGI.USER, or just replace it in 'url' below
 const SETTINGS = require('../settings.js');
 
 module.exports = (context, request) => {
