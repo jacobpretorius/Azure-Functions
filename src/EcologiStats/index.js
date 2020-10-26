@@ -20,7 +20,7 @@ module.exports = (context, request) => {
 
       // All done, return
       context.res = {
-        // status defaults to 200 */
+        // status defaults to 200
         body: {
           CarbonOffset: carbonOffset.toFixed(2),
           TreesPlanted: treesPlanted,
