@@ -7,7 +7,7 @@ const Moment = require('moment');
 // See https://docs.microsoft.com/en-gb/azure/app-service/configure-common for more info
 const SETTINGS = require('../settings.js');
 
-module.exports = async function (context, request) {
+module.exports = (context, request) => {
   const url = 'https://api.todoist.com/sync/v8/sync';
 
   const config = {
