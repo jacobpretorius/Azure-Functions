@@ -1,10 +1,10 @@
-const Request = require('request');
+const Axios = require('axios');
 const SETTINGS = require('../settings.js');
 const foodResponses = require('../responses.js');
 const pubResponses = require('../pubResponses.js');
 
-module.exports = async function (context, req) {
-  let merchant = req.body.data.merchant.name;
+module.exports = async function (context, request) {
+  let merchant = request.body.data.merchant.name;
 
   // Make sure transaction is something merchant based
   if (!merchant || !merchant.length) {
@@ -32,25 +32,23 @@ module.exports = async function (context, req) {
     return;
   }
 
-  let messageToUser = `${req.body.data.merchant.emoji || '💸'} ${responseMessage}`;
+  let messageToUser = `${request.body.data.merchant.emoji || '💸'} ${responseMessage}`;
 
   // All done, do the request
-  Request(
-    {
-      url: 'https://'
-        + SETTINGS.JARVIS.URL
-        +'/say/exact?key='
-        + SETTINGS.JARVIS.KEY
-        + '&pub='
-        + isAPub
-        + '&message='
-        + encodeURI(messageToUser),
-      rejectUnauthorized: true
-    }, (err, response) => {
-      if (err) {
-        context.done(err);
-      }
-
+  Axios
+    .get(
+      'https://'
+      + SETTINGS.JARVIS.URL
+      +'/say/exact?key='
+      + SETTINGS.JARVIS.KEY
+      + '&pub='
+      + isAPub
+      + '&message='
+      + encodeURI(messageToUser))
+    .then(response => {
       context.done();
+    })
+    .catch(error => {
+      context.done(error);
     });
 };

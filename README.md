@@ -12,10 +12,6 @@ In VS code make sure to have the Azure Functions extension installed, VS will pr
 
 Checks a given project in Toggl to see how much time has been logged to it for the current day.
 
-**Toggl start sleeping In timer**
-
-The Azure re-implementation of [toggl-sleeping-in](https://github.com/jacobpretorius/toggl-sleeping-in) which used to run on the ex-wonderful webtask.io. Currently disabled in the function.json file.
-
 **Toggl => Startpage Sync**
 
 The sync job that checks Toggl for daily read goal and updates my personal Startpage API.
@@ -42,4 +38,4 @@ Configure run times in `src/job/function.json` using the `"schedule": "* * * * *
 
 ### Todo
 
-- Remove Request usage & replace with Axios.
+- None 😀

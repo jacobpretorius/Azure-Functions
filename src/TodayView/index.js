@@ -1,75 +1,11 @@
-const Axios = require('axios');
-const Moment = require('moment');
+const getTogglTrackedToday = require('../utils/GetTogglTrackedToday.js');
+const getTodoistItemsToday = require('../utils/GetTodoistItemsToday.js');
 
 // Remember to set Azure "Application settings" for:
 // Todoist API key in 'TODOIST_API_TOKEN'
 // Toggl API key in 'TOGGL_API_TOKEN
 // or directly in the settings.js file (not recommended).
 // See https://docs.microsoft.com/en-gb/azure/app-service/configure-common for more info
-const SETTINGS = require('../settings.js');
-
-// Interacts with Todoist
-async function getTodoistItemsToday() {
-  const todoistApiUrl = 'https://api.todoist.com/sync/v8/sync';
-  const config = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  };
-
-  const todoistResponse = await Axios.post(
-    todoistApiUrl,
-    `token=${SETTINGS.TODOIST.API_TOKEN}&sync_token=*&resource_types=%5B%22items%22%5D`,
-    config
-  );
-
-  // Get Todoist items for today
-  const today = Moment().format('YYYY-MM-DD');
-  const itemsToday = todoistResponse.data.items.filter(
-    item => item.due != null && item.due.date.startsWith(today)
-  );
-  return itemsToday;
-}
-
-// Interacts with Toggl
-async function getTogglTrackedToday(projectId) {
-  const today = Moment(Moment().format('LL')).toISOString();
-  const togglApiUrl = `https://api.track.toggl.com/api/v8/time_entries?start_date=${today}`;
-
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    auth: {
-      username: SETTINGS.TOGGL.API_TOKEN,
-      password: 'api_token',
-    },
-  };
-
-  const timeEntries = await Axios.get(togglApiUrl, config);
-
-  let durationInSeconds = 0;
-  let activeDay = Moment().format('DD');
-
-  // Check that we have timers
-  if (timeEntries.data !== null && timeEntries.data.length > 0) {
-    // Loop em
-    timeEntries.data.forEach(function (TimedActivity) {
-      // Check if it is a reading timer
-      if (
-        TimedActivity.pid == projectId &&
-        Moment(TimedActivity.stop).format('DD') === activeDay
-      ) {
-        // Got one, make sure it's not an active timer
-        if (TimedActivity.duration > 0) {
-          durationInSeconds += TimedActivity.duration;
-        }
-      }
-    });
-  }
-
-  return durationInSeconds < 0 ? 0 : durationInSeconds;
-}
 
 // Expects the Toggl projectId as a parameter
 module.exports = async (context, request) => {

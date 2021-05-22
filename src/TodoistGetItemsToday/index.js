@@ -1,4 +1,4 @@
-const axios = require('axios');
+const Axios = require('axios');
 const Moment = require('moment');
 
 // Remember to set Azure "Application settings" for:
@@ -7,7 +7,7 @@ const Moment = require('moment');
 // See https://docs.microsoft.com/en-gb/azure/app-service/configure-common for more info
 const SETTINGS = require('../settings.js');
 
-module.exports = (context, request) => {
+module.exports = async function (context, request) {
   const url = 'https://api.todoist.com/sync/v8/sync';
 
   const config = {
@@ -20,13 +20,13 @@ module.exports = (context, request) => {
   const today = Moment().format('YYYY-MM-DD');
 
   // Post to Todoist API
-  axios
+  Axios
     .post(
       url,
       `token=${SETTINGS.TODOIST.API_TOKEN}&sync_token=*&resource_types=%5B%22items%22%5D`,
       config
     )
-    .then(function (response) {
+    .then(response => {
       let itemsToday = response.data.items.filter(
         item => item.due != null && item.due.date.startsWith(today)
       );
@@ -41,7 +41,7 @@ module.exports = (context, request) => {
       };
       context.done();
     })
-    .catch(function (error) {
+    .catch(error => {
       context.log.error(error);
       context.done();
     });

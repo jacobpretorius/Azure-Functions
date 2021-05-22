@@ -1,7 +1,6 @@
 module.exports = {
   TOGGL : {
-    'API_TOKEN' : process.env.TOGGL_API_TOKEN || '',
-    'SLEEPING_IN_PROJECT_ID' : process.env.TOGGL_SLEEPING_IN_PROJECT_ID || ''
+    'API_TOKEN' : process.env.TOGGL_API_TOKEN || ''
   },
 
   TODOIST : {
@@ -22,5 +21,11 @@ module.exports = {
 
   ECOLOGI : {
     'USER' : process.env.ECOLOGI_USER || ''
+  },
+
+  CODA : {
+    'API_TOKEN' : process.env.CODA_API_TOKEN || '',
+    'DOC_ID' : process.env.CODA_DOC_ID || '',
+    'TABLE_ID' : process.env.CODA_TABLE_ID || ''
   }
 }

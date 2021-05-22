@@ -1,4 +1,4 @@
-const axios = require('axios');
+const Axios = require('axios');
 
 // Sign up to Ecologi if you havent already -> https://ecologi.com/jacob?r=5f06306809bb2c0017d8e912
 // and then put your public username in SETTINGS.ECOLOGI.USER, or just replace it in 'url' below
@@ -8,9 +8,9 @@ module.exports = (context, request) => {
   // Get Ecologi API
   const url = `https://api.ecologi.com/users/${SETTINGS.ECOLOGI.USER}/profile`;
 
-  axios
+  Axios
     .get(url)
-    .then((response) => {
+    .then(response => {
       let carbonOffset = response.data.data.carbonOffsets.reduce(
         (a, b) => a + b.numberOfTonnes,
         0
@@ -28,7 +28,7 @@ module.exports = (context, request) => {
       };
       context.done();
     })
-    .catch((error) => {
+    .catch(error => {
       context.log.error(error);
       context.res.statusCode = 500;
       context.res = {
