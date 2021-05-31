@@ -25,9 +25,9 @@ module.exports = async function (context, request) {
   let activeDay = Moment().add(-1, 'days').format('DD');
 
   // Check that we have timers
-  if (timeEntries !== null && timeEntries.length > 0) {
+  if (timeEntries?.data !== null && timeEntries.data.length > 0) {
     // Loop em
-    timeEntries.forEach(function (TimedActivity) {
+    timeEntries.data.forEach(function (TimedActivity) {
       // Check if it is a reading timer
       if (
         TimedActivity.pid == SETTINGS.STARTPAGE.GOAL_PROJECT_ID &&
