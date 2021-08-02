@@ -45,7 +45,7 @@ module.exports = async function (context, request) {
   }
 
   // All done, do the request
-  Axios
+  await Axios
     .get(
       'https://' +
       SETTINGS.STARTPAGE.URL +
