@@ -1,0 +1,10 @@
+{
+  "bindings": [
+    {
+      "name": "YoutubePlaylistWatcher",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "* * * 4 * *"
+    }
+  ]
+}

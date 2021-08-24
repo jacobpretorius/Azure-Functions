@@ -12,7 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "youtube-search-api": "^1.0.10"
   },
   "devDependencies": {}
 }
