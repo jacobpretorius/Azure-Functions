@@ -3,10 +3,10 @@ const Moment = require('moment');
 const SETTINGS = require('../settings.js');
 
 module.exports = async function (context, request) {
-  // Get yesterdays date
-  const yesterday = Moment(Moment().add(-1, 'days').format('LL')).toISOString();
+  // Get start date
+  const startDate = Moment(Moment().add(-2, 'days').format('LL')).toISOString();
 
-  const togglApiUrl = `https://api.track.toggl.com/api/v8/time_entries?start_date=${yesterday}`;
+  const togglApiUrl = `https://api.track.toggl.com/api/v8/time_entries?start_date=${startDate}`;
 
   const config = {
     headers: {
@@ -25,7 +25,7 @@ module.exports = async function (context, request) {
   let activeDay = Moment().add(-1, 'days').format('DD');
 
   // Check that we have timers
-  if (timeEntries?.data !== null && timeEntries.data.length > 0) {
+  if (timeEntries != null && timeEntries.data !== null && timeEntries.data.length > 0) {
     // Loop em
     timeEntries.data.forEach(function (TimedActivity) {
       // Check if it is a reading timer
@@ -40,7 +40,8 @@ module.exports = async function (context, request) {
   }
 
   // Check if we have more than (goal) mins
-  if (durationMs / 60 >= SETTINGS.STARTPAGE.GOAL_MINUTES) {
+  const duration = durationMs / 60;
+  if (duration >= SETTINGS.STARTPAGE.GOAL_MINUTES) {
     goalAchieved = true;
   }
 
@@ -56,7 +57,7 @@ module.exports = async function (context, request) {
       '&goal=' +
       goalAchieved +
       '&time=' +
-      Math.floor(durationMs / 60))
+      Math.floor(duration))
     .then(response => {
       context.done();
     })
