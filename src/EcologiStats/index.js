@@ -8,22 +8,14 @@ module.exports = (context, request) => {
   // Get Ecologi API
   const url = `https://api.ecologi.com/users/${SETTINGS.ECOLOGI.USER}/profile`;
 
-  Axios
-    .get(url)
+  Axios.get(url)
     .then(response => {
-      let carbonOffset = response.data.data.carbonOffsets.reduce(
-        (a, b) => a + b.numberOfTonnes,
-        0
-      );
-
-      let treesPlanted = response.data.data.trees.reduce((a, b) => a + b.value, 0);
-
       // All done, return
       context.res = {
         // status defaults to 200
         body: {
-          CarbonOffset: carbonOffset.toFixed(2),
-          TreesPlanted: treesPlanted,
+          CarbonOffset: response.data.data.totalCarbonTonnes,
+          TreesPlanted: response.data.data.totalTrees,
         },
       };
       context.done();
@@ -32,7 +24,7 @@ module.exports = (context, request) => {
       context.log.error(error);
       context.res.statusCode = 500;
       context.res = {
-        body: { error }
+        body: { error },
       };
       context.done();
     });
